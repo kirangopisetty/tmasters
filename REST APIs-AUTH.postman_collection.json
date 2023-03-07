@@ -1,0 +1,1420 @@
+{
+	"info": {
+		"_postman_id": "96b853c8-af20-4834-894e-32865c000b38",
+		"name": "REST APIs-AUTH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5040522"
+	},
+	"item": [
+		{
+			"name": "POSITIVE TC",
+			"item": [
+				{
+					"name": "BASIC AUTH-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response description is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server header is missing\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is present\", function () {\r",
+									"    pm.response.to.have.body;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is JSON body\", function () {\r",
+									"    pm.response.to.have.jsonBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is valid\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"authenticated\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"user\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "passwd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/basic-auth/user/passwd",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"basic-auth",
+								"user",
+								"passwd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BEARER TOKEN-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response description is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server header is missing\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is present\", function () {\r",
+									"    pm.response.to.have.body;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is JSON body\", function () {\r",
+									"    pm.response.to.have.jsonBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is valid\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"authenticated\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"token\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer 12345",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/bearer",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"bearer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DIGEST AUTH-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response description is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server header is missing\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is present\", function () {\r",
+									"    pm.response.to.have.body;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is JSON body\", function () {\r",
+									"    pm.response.to.have.jsonBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is valid\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"authenticated\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"user\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": [
+								{
+									"key": "qop",
+									"value": "auth",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "passwd",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "MD5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/digest-auth/auth/user/passwd",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"digest-auth",
+								"auth",
+								"user",
+								"passwd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DIGEST AUTH-ALGORITHM-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response description is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server header is missing\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is present\", function () {\r",
+									"    pm.response.to.have.body;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is JSON body\", function () {\r",
+									"    pm.response.to.have.jsonBody;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is valid\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"authenticated\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"true\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"user\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": [
+								{
+									"key": "qop",
+									"value": "auth-int",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "MD5",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "passwd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/digest-auth/auth-int/user/passwd/MD5",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"digest-auth",
+								"auth-int",
+								"user",
+								"passwd",
+								"MD5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DDT-CSV",
+			"item": [
+				{
+					"name": "BASIC AUTH-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{myPWD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{myUN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/basic-auth/user/passwd",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"basic-auth",
+								"user",
+								"passwd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BEARER TOKEN-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{myToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/bearer",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"bearer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DIGEST AUTH-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": [
+								{
+									"key": "password",
+									"value": "{{myPWD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{myUN}}",
+									"type": "string"
+								},
+								{
+									"key": "qop",
+									"value": "{{myQOP}}",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "MD5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/digest-auth/auth/user/passwd",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"digest-auth",
+								"auth",
+								"user",
+								"passwd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DATA DRIVEN TESTING",
+			"item": [
+				{
+					"name": "BASIC AUTH-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+									"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is empty\", function () {\r",
+									"    pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{$randomPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{$randomUserName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/basic-auth/user/passwd",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"basic-auth",
+								"user",
+								"passwd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BEARER TOKEN-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+									"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is empty\", function () {\r",
+									"    pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer {{$randomInt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/bearer",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"bearer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DIGEST AUTH-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+									"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is empty\", function () {\r",
+									"    pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": [
+								{
+									"key": "password",
+									"value": "{{$randomPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{$randomUserName}}",
+									"type": "string"
+								},
+								{
+									"key": "qop",
+									"value": "auth",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "MD5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/digest-auth/auth/user/passwd",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"digest-auth",
+								"auth",
+								"user",
+								"passwd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DIGEST AUTH-ALGORITHM-API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+									"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is empty\", function () {\r",
+									"    pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": [
+								{
+									"key": "password",
+									"value": "{{$randomPassword}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{$randomUserName}}",
+									"type": "string"
+								},
+								{
+									"key": "qop",
+									"value": "auth-int",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "MD5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://httpbin.org/digest-auth/auth-int/user/passwd/MD5",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"digest-auth",
+								"auth-int",
+								"user",
+								"passwd",
+								"MD5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NEGATIVE TC",
+			"item": [
+				{
+					"name": "NO AUTH",
+					"item": [
+						{
+							"name": "BASIC-AUTH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/basic-auth/user/passwd",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"basic-auth",
+										"user",
+										"passwd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "BEARER-TOKEN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/bearer",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"bearer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DIGEST-AUTH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/digest-auth/auth/user/passwd",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"digest-auth",
+										"auth",
+										"user",
+										"passwd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "INVALID AUTH",
+					"item": [
+						{
+							"name": "BASIC-AUTH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "Bearer 12345",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/basic-auth/user/passwd",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"basic-auth",
+										"user",
+										"passwd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "BEARER TOKEN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "digest",
+									"digest": [
+										{
+											"key": "qop",
+											"value": "auth-int",
+											"type": "string"
+										},
+										{
+											"key": "algorithm",
+											"value": "MD5",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "user",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "passwd",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/bearer",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"bearer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DIGEST-AUTH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "passwd",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "user",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/digest-auth/auth/user/passwd",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"digest-auth",
+										"auth",
+										"user",
+										"passwd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "EMPTY CREDENTIALS",
+					"item": [
+						{
+							"name": "BASIC-AUTH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/basic-auth/user/passwd",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"basic-auth",
+										"user",
+										"passwd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "BEARER-TOKEN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/bearer",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"bearer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DIGEST-AUTH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "digest",
+									"digest": [
+										{
+											"key": "qop",
+											"value": "",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "",
+											"type": "string"
+										},
+										{
+											"key": "algorithm",
+											"value": "MD5",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/digest-auth/auth/user/passwd",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"digest-auth",
+										"auth",
+										"user",
+										"passwd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "INVALID CREDENTIALS",
+					"item": [
+						{
+							"name": "BASIC-AUTH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "passwd",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "manaswini",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/basic-auth/user/passwd",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"basic-auth",
+										"user",
+										"passwd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "BEARER-TOKEN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "Sailaja 007",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/bearer",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"bearer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DIGEST-AUTH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verify if response code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response message is UNAUTHORIZED\", function () {\r",
+											"    pm.response.to.have.status(\"UNAUTHORIZED\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify if response body is empty\", function () {\r",
+											"    pm.response.to.have.body(\"\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "digest",
+									"digest": [
+										{
+											"key": "password",
+											"value": "passwd",
+											"type": "string"
+										},
+										{
+											"key": "qop",
+											"value": "kiran",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "sailaja",
+											"type": "string"
+										},
+										{
+											"key": "algorithm",
+											"value": "MD5",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://httpbin.org/digest-auth/auth/user/passwd",
+									"protocol": "http",
+									"host": [
+										"httpbin",
+										"org"
+									],
+									"path": [
+										"digest-auth",
+										"auth",
+										"user",
+										"passwd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "b4409a54-d228-40a7-a3c5-251af0174a55",
+		"name": "IMAGES-MODULE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5040522"
+	},
+	"item": [
+		{
+			"name": "JPEG-API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify if response code=200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response description=OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Content-Type=image/jpeg\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\",\"image/jpeg\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+							"    pm.response.to.have.header(\"Connection\",\"keep-alive\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Server field is not present\", function () {\r",
+							"    pm.response.to.not.have.header(\"Server\");\r",
+							"});\r",
+							"\r",
+							"if (pm.response.code==200) {\r",
+							"    postman.setNextRequest(\"PNG-API\");\r",
+							"}\r",
+							"else {\r",
+							"    postman.setNextRequest(\"\");\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://httpbin.org/image/jpeg",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"image",
+						"jpeg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PNG-API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify if response code=200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response description=OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Content-Type=image/png\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\",\"image/png\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+							"    pm.response.to.have.header(\"Connection\",\"keep-alive\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Server field is not present\", function () {\r",
+							"    pm.response.to.not.have.header(\"Server\");\r",
+							"});\r",
+							"\r",
+							"if (pm.response.code==200) {\r",
+							"    postman.setNextRequest(\"SVG-API\");\r",
+							"}\r",
+							"else {\r",
+							"    postman.setNextRequest(\"\");\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://httpbin.org/image/png",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"image",
+						"png"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SVG-API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify if response code=200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response description=OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Content-Type=image/image/svg+xml\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\",\"image/svg+xml\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+							"    pm.response.to.have.header(\"Connection\",\"keep-alive\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Server field is not present\", function () {\r",
+							"    pm.response.to.not.have.header(\"Server\");\r",
+							"});\r",
+							"\r",
+							"if (pm.response.code==200) {\r",
+							"    postman.setNextRequest(\"WEBP-API\");\r",
+							"}\r",
+							"else {\r",
+							"    postman.setNextRequest(\"\");\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://httpbin.org/image/svg",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"image",
+						"svg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WEBP-API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify if response code=200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response description=OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Content-Type=image/webp\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\",\"image/webp\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+							"    pm.response.to.have.header(\"Connection\",\"keep-alive\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if Server field is not present\", function () {\r",
+							"    pm.response.to.not.have.header(\"Server\");\r",
+							"});\r",
+							"\r",
+							"if (pm.response.code==200) {\r",
+							"    postman.setNextRequest(\"\");\r",
+							"}\r",
+							"else {\r",
+							"    postman.setNextRequest(\"WEBP-API\");\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://httpbin.org/image/webp",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"image",
+						"webp"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

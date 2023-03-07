@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "e8f13898-a01f-4c4e-96a2-4d5e25548e14",
+		"name": "GRAPH-QL-APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5040522"
+	},
+	"item": [
+		{
+			"name": "LIST OF CONTINENTS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify if response code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is present and is JSON\", function () {\r",
+							"    pm.response.to.have.jsonBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is valid\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"code\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n  continents {\r\n    code\r\n    name\r\n  } \r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://countries.trevorblades.com/",
+					"protocol": "https",
+					"host": [
+						"countries",
+						"trevorblades",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST OF COUNTRIES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify if response code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is present and is JSON\", function () {\r",
+							"    pm.response.to.have.jsonBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is valid\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"capital\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n  continents {\r\n    name\r\n    countries {\r\n      name\r\n      capital\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://countries.trevorblades.com/",
+					"protocol": "https",
+					"host": [
+						"countries",
+						"trevorblades",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST OF COUNTRIES DETAILS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify if response code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is present and is JSON\", function () {\r",
+							"    pm.response.to.have.jsonBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is valid\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"capital\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"phone\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"currency\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n  continents {\r\n    name\r\n    countries {\r\n      name\r\n      capital\r\n      phone\r\n      currency\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://countries.trevorblades.com/",
+					"protocol": "https",
+					"host": [
+						"countries",
+						"trevorblades",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST OF COUNTRIES & LANGUAGES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify if response code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is present and is JSON\", function () {\r",
+							"    pm.response.to.have.jsonBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is valid\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"capital\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"phone\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"currency\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n  continents {\r\n    name\r\n    countries {\r\n      name\r\n      capital\r\n      languages {\r\n        name\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://countries.trevorblades.com/",
+					"protocol": "https",
+					"host": [
+						"countries",
+						"trevorblades",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST OF COUNTRIES DETAILS & STATES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify if response code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is present and is JSON\", function () {\r",
+							"    pm.response.to.have.jsonBody;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify if response body is valid\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"capital\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"phone\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"currency\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n  continents {\r\n    name\r\n    countries {\r\n      name\r\n      capital\r\n      phone\r\n      currency\r\n      states {\r\n          name\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://countries.trevorblades.com/",
+					"protocol": "https",
+					"host": [
+						"countries",
+						"trevorblades",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
